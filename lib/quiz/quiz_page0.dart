@@ -31,7 +31,6 @@ class QuizPage0 extends StatelessWidget {
                               child: Text('次の問題へ'),
                               onPressed: () {
                                 //次の問題への画面遷移
-                                counter++;
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -59,6 +58,7 @@ class QuizPage0 extends StatelessWidget {
                             child: Text('次の問題へ'),
                             onPressed: () {
                               //次の問題への画面遷移
+                              counter++;
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
