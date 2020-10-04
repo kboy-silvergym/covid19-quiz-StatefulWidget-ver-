@@ -1,20 +1,9 @@
 import 'package:covid19quiz/quiz/quiz_page2.dart';
 import 'package:flutter/material.dart';
 
-class QuizPage1 extends StatefulWidget {
-  QuizPage1(this.counter, {Key key}) : super(key: key);
-
-  final int counter;
-
-  @override
-  _QuizPage1State createState() => _QuizPage1State();
-}
-
-class _QuizPage1State extends State<QuizPage1> {
-  int _incrementCounter() {
-    int correctCounter = widget.counter + 1;
-    return correctCounter;
-  }
+class QuizPage1 extends StatelessWidget {
+  QuizPage1(this.counter);
+  int counter;
 
   @override
   Widget build(BuildContext context) {
@@ -42,11 +31,12 @@ class _QuizPage1State extends State<QuizPage1> {
                               child: Text('次の問題へ'),
                               onPressed: () {
                                 //次の問題への画面遷移
+                                counter++;
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            QuizPage2(_incrementCounter())));
+                                      builder: (context) => QuizPage2(counter),
+                                    ));
                               },
                             ),
                           ],
@@ -72,8 +62,8 @@ class _QuizPage1State extends State<QuizPage1> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            QuizPage2(widget.counter)));
+                                      builder: (context) => QuizPage2(counter),
+                                    ));
                               },
                             ),
                           ],
@@ -100,7 +90,7 @@ class _QuizPage1State extends State<QuizPage1> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            QuizPage2(widget.counter)));
+                                            QuizPage2(counter)));
                               },
                             ),
                           ],
@@ -127,7 +117,7 @@ class _QuizPage1State extends State<QuizPage1> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            QuizPage2(widget.counter)));
+                                            QuizPage2(counter)));
                               },
                             ),
                           ],
