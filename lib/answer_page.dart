@@ -1,11 +1,20 @@
 import 'package:covid19quiz/main.dart';
 import 'package:flutter/material.dart';
 
-class AnswerPage extends StatelessWidget {
-  AnswerPage(this.correctCounter);
-  int correctCounter;
+class AnswerPage extends StatefulWidget {
+  AnswerPage(this.counter, {Key key}) : super(key: key);
 
-  int counter;
+  final int counter;
+
+  @override
+  _AnswerPage createState() => _AnswerPage();
+}
+
+class _AnswerPage extends State<AnswerPage> {
+  int _incrementCounter() {
+    int correctCounter = widget.counter + 1;
+    return correctCounter;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +24,7 @@ class AnswerPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                '正解は３問中$counter問でした！！',
+                '正解は３問中${widget.counter}問でした！！',
                 style: TextStyle(fontSize: 20),
               ),
               Padding(
